@@ -40,5 +40,8 @@ setup(name = 'pyzimbra',
     url = 'http://github.com/ilgarm/pyzimbra',
     packages = ['pyzimbra','pyzimbra/z'],
     package_data = {'package' : files },
+    install_requires=[
+        'SOAPpy',
+    ],
     long_description = """This library aimed to help those who want to talk to zimbra instance from python.""" 
 )

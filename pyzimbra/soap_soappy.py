@@ -97,7 +97,7 @@ class SoapHttpTransport(SOAPpy.Client.HTTPTransport):
 
     # ------------------------------------------------------------------ unbound
     def call(self, addr, data, namespace, soapaction = None, encoding = None,
-        http_proxy = None, config = SOAPpy.Config):
+        http_proxy = None, config = SOAPpy.Config, timeout = None):
 
         if not isinstance(addr, SOAPpy.Client.SOAPAddress):
             addr = SOAPpy.Client.SOAPAddress(addr, config)
