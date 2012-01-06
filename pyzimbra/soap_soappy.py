@@ -41,9 +41,25 @@ class ZimbraSOAPParser(SOAPpy.SOAPParser):
     Could not find another workaround.
 
     SOAPpy deletes node's id attribute. So we back it up before deletion.
+    
+    Add basic rules for parsing nested tags attributes. They are skipped by
+    SOAPpy otherwise.
     """
     # -------------------------------------------------------------------- bound
     def __init__(self, rules = None):
+        if rules is None:
+            rules = {
+                # this rule makes nested e and m tags inside c returned by
+                # SearchResponse for conversations be parsed with
+                # attributes, otherwise SOAPpy skips attributes
+                'SearchResponse': {
+                    'c': {
+                        'e': {},
+                        'm': {}
+                    }
+                }
+            }
+        
         SOAPpy.SOAPParser.__init__(self, rules)
 
 
