@@ -39,6 +39,8 @@ class ZimbraSOAPParser(SOAPpy.SOAPParser):
     No need to keep track of hrefs for zimbra.
     Ugliest hack ever: just empty list of ref ids every time.
     Could not find another workaround.
+
+    SOAPpy deletes node's id attribute. So we back it up before deletion.
     """
     # -------------------------------------------------------------------- bound
     def __init__(self, rules = None):
@@ -47,6 +49,11 @@ class ZimbraSOAPParser(SOAPpy.SOAPParser):
 
     # ------------------------------------------------------------------ unbound
     def endElementNS(self, name, qname):
+        # try to back up id attribute before it'll be removed by SOAPpy parser
+        frame = self._stack[-1]
+        if frame.attrs.has_key((None, 'id')):
+            frame.attrs[(None, '_orig_id')] = frame.attrs[(None, 'id')]
+        
         self._ids = {}
         SOAPpy.SOAPParser.endElementNS(self, name, qname)
 
