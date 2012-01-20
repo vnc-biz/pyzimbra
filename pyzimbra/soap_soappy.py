@@ -57,6 +57,13 @@ class ZimbraSOAPParser(SOAPpy.SOAPParser):
                         'e': {},
                         'm': {}
                     }
+                },
+                'GetConvResponse': {
+                    'c': {
+                        'm': {
+                            'e': {}
+                        }
+                    }
                 }
             }
         
