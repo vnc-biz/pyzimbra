@@ -2,22 +2,22 @@
 """
 ################################################################################
 # Copyright (c) 2010, Ilgar Mashayev
-# 
+#
 # E-mail: pyzimbra@lab.az
 # Website: http://github.com/ilgarm/pyzimbra
 ################################################################################
 # This file is part of pyzimbra.
-# 
+#
 # Pyzimbra is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # Pyzimbra is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Lesser General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Lesser General Public License
 # along with Pyzimbra.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
@@ -41,7 +41,7 @@ class ZimbraSOAPParser(SOAPpy.SOAPParser):
     Could not find another workaround.
 
     SOAPpy deletes node's id attribute. So we back it up before deletion.
-    
+
     Add basic rules for parsing nested tags attributes. They are skipped by
     SOAPpy otherwise.
     """
@@ -56,7 +56,14 @@ class ZimbraSOAPParser(SOAPpy.SOAPParser):
                     'c': {
                         'e': {},
                         'm': {}
-                    }
+                    },
+                    'task': {
+                      'or': {
+                        'inst': {
+                          'fr': {}
+                        }
+                      }
+                    },
                 },
                 'GetConvResponse': {
                     'c': {
@@ -64,9 +71,23 @@ class ZimbraSOAPParser(SOAPpy.SOAPParser):
                             'e': {}
                         }
                     }
-                }
+                },
+                'CreateTaskResponse': {
+                },
+                'GetMsgResponse': {
+                    'm': {
+                        's':{},
+                        'd':{},
+                        'rev':{},
+                        'id':{},
+                        'inv': {
+                            'type': {},
+                            'comp': {},
+                        },
+                    },
+                },
             }
-        
+
         SOAPpy.SOAPParser.__init__(self, rules)
 
 
@@ -76,7 +97,7 @@ class ZimbraSOAPParser(SOAPpy.SOAPParser):
         frame = self._stack[-1]
         if frame.attrs.has_key((None, 'id')):
             frame.attrs[(None, '_orig_id')] = frame.attrs[(None, 'id')]
-        
+
         self._ids = {}
         SOAPpy.SOAPParser.endElementNS(self, name, qname)
 
