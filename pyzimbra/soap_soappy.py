@@ -76,13 +76,35 @@ class ZimbraSOAPParser(SOAPpy.SOAPParser):
                 },
                 'GetMsgResponse': {
                     'm': {
-                        's':{},
-                        'd':{},
-                        'rev':{},
-                        'id':{},
+                        's': {},
+                        'd': {},
+                        'rev': {},
+                        'id': {},
                         'inv': {
                             'type': {},
                             'comp': {},
+                        },
+                    },
+                },
+                'GetFolderResponse': {
+                    'folder': {
+                        'id': {},
+                        'name': {},
+                        'absFolderPath': {},
+                        'uuid': {},
+                        'luuid': {},
+                        'rev': {},
+                        'i4next': {},
+                        'i4ms': {},
+                        'activesyncdisabled': {},
+                        'l': {},
+                        's': {},
+                        'ms': {},
+                        'n': {},
+                        'folder': {
+                            'folder': {
+                                'folder': {},
+                            },
                         },
                     },
                 },
@@ -191,7 +213,7 @@ class SoapHttpTransport(SOAPpy.Client.HTTPTransport):
         Builds url opener, initializing proxy.
         @return: OpenerDirector
         """
-        http_handler = urllib2.HTTPHandler() # debuglevel=self.transport.debug
+        http_handler = urllib2.HTTPHandler()
 
         if util.empty(self.transport.proxy_url):
             return urllib2.build_opener(http_handler)

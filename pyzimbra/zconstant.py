@@ -2,22 +2,22 @@
 """
 ################################################################################
 # Copyright (c) 2010, Ilgar Mashayev
-# 
+#
 # E-mail: pyzimbra@lab.az
 # Website: http://github.com/ilgarm/pyzimbra
 ################################################################################
 # This file is part of pyzimbra.
-# 
+#
 # Pyzimbra is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # Pyzimbra is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Lesser General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Lesser General Public License
 # along with Pyzimbra.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
@@ -49,3 +49,8 @@ NS_ZIMBRA_ACC = '{%s}' % NS_ZIMBRA_ACC_URL
 NS_ZIMBRA_ADMIN_URL = 'urn:zimbraAdmin'
 NS_ZIMBRA_ACC_MAP = {None: NS_ZIMBRA_ADMIN_URL}
 NS_ZIMBRA_ACC = '{%s}' % NS_ZIMBRA_ADMIN_URL
+
+NS_ZIMBRA_MAIL_URL = 'urn:zimbraMail'
+NS_ZIMBRA_MAIL_MAP = {None: NS_ZIMBRA_ACC_URL}
+NS_ZIMBRA_MAIL = '{%s}' % NS_ZIMBRA_ACC_URL
+

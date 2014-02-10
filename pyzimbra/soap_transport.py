@@ -49,7 +49,8 @@ class SoapTransport(ZimbraClientTransport):
 
 
     # ------------------------------------------------------------------ unbound
-    def invoke(self, ns, request_name, params, auth_token, simplify=False):
+    def invoke(self, ns, request_name, params, auth_token, simplify=False,
+               methodattrs=None):
         """
         Invokes zimbra soap request.
         """
@@ -61,6 +62,7 @@ class SoapTransport(ZimbraClientTransport):
                                      simplify)
 
         headers = SOAPpy.Types.headerType()
+
 
         if auth_token.token != None:
             data={sconstant.E_AUTH_TOKEN: auth_token.token,
@@ -74,6 +76,7 @@ class SoapTransport(ZimbraClientTransport):
                                  ns,
                                  header=headers,
                                  noroot=1,
+                                 methodattrs=methodattrs,
                                  simplify_objects=simplify)
         proxy.config.debug = self.log.isEnabledFor(logging.DEBUG)
         proxy.config.strictNamespaces = 0
