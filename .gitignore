@@ -6,3 +6,4 @@ MANIFEST
 *.pyc
 .DS_Store
 client-local.properties
+*kdev4*

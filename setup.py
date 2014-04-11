@@ -2,9 +2,10 @@
 """
 ################################################################################
 # Copyright (c) 2010, Ilgar Mashayev
+# Copyright (c) 2014, VNC AG
 # 
-# E-mail: pyzimbra@lab.az
-# Website: http://github.com/ilgarm/pyzimbra
+# E-mail: support@vnc.biz
+# Website: http://github.com/vnc-biz/pyzimbra
 ################################################################################
 # This file is part of pyzimbra.
 # 
