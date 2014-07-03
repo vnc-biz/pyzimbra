@@ -1,4 +1,3 @@
-===============================
 Zimbra Python Client (pyzimbra)
 ===============================
 
@@ -6,14 +5,14 @@ fork of https://github.com/ilgarm/pyzimbra/
 
 
 About
-=====
+-----
 
 This library aimed to help those who want to talk to zimbra instance from
 python.
 
 
 Features
-========
+--------
 
 What is possible at the moment:
 
@@ -31,14 +30,14 @@ What is missing and coming in the future:
 
 
 Contributors
-============
+------------
 
 * Ilgar Mashayev, Original Author
 * Vitaliy Podoba
 
 
 Contacts
-========
+--------
 
 report bugs at: https://github.com/vnc-biz/pyzimbra/issues
 
