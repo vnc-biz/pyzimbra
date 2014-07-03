@@ -45,5 +45,4 @@ setup(name = 'pyzimbra',
     install_requires=[
         'SOAPpy',
     ],
-    long_description = """This library aimed to help those who want to talk to zimbra instance from python.""" 
 )
